@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abu Mohammad Taief - Data Scientist & AI Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section:nth-child(even) {
+            background: white;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-highlights h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-highlights ul {
+            list-style: none;
+        }
+
+        .about-highlights li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .about-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .experience-date {
+            color: #667eea;
+            font-weight: 500;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+        }
+
+        .experience-company {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-desc {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .experience-achievements {
+            list-style: none;
+        }
+
+        .experience-achievements li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .degree {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .education-date {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .university {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .thesis {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-top: 1rem;
+        }
+
+        /* Publications Section */
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .publication-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-year {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .contact-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="hero-text">
+                    <h1>Abu Mohammad Taief</h1>
+                    <h2>Data Scientist & AI Specialist</h2>
+                    <p>Passionate about leveraging advanced AI and machine learning to solve complex business challenges. Specialized in Generative AI, LLMs, and end-to-end ML solutions.</p>
+                    <div class="contact-info">
+                        <a href="mailto:taiefmaiden1@gmail.com" class="contact-item">
+                            <span>📧</span> taiefmaiden1@gmail.com
+                        </a>
+                        <a href="tel:+4746269951" class="contact-item">
+                            <span>📱</span> +47 46269951
+                        </a>
+                        <a href="https://linkedin.com/in/abu-taief/" class="contact-item" target="_blank">
+                            <span>💼</span> LinkedIn
+                        </a>
+                        <a href="https://github.com/MaidenTaief" class="contact-item" target="_blank">
+                            <span>💻</span> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate Data Scientist with a Master's degree in Applied Computer Science from UiT The Arctic University of Norway. My expertise lies in developing and applying advanced AI and machine learning models, with deep hands-on experience in Generative AI and Language Models.</p>
+                    
+                    <p>My journey spans from quality assurance and project management to cutting-edge AI research. I thrive in collaborative environments where I can translate complex business use cases into data-driven solutions.</p>
+                    
+                    <p>Currently based in Narvik, Norway, I'm eager to contribute to innovative AI initiatives and help organizations harness the power of machine learning for business transformation.</p>
+                </div>
+                <div class="about-highlights">
+                    <h3>Key Strengths</h3>
+                    <ul>
+                        <li>Advanced AI & Machine Learning expertise</li>
+                        <li>Generative AI and LLMs specialization</li>
+                        <li>End-to-end ML lifecycle management</li>
+                        <li>Strong Python and SQL proficiency</li>
+                        <li>Published research in AI/ML</li>
+                        <li>Leadership and project management</li>
+                        <li>Quality assurance and testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Assistant Project Manager</div>
+                    <div class="experience-date">Sep 2020 - Mar 2022</div>
+                </div>
+                <div class="experience-company">Bit Mascot (Pvt.) Ltd.</div>
+                <div class="experience-desc">
+                    Led automation projects with deep involvement in Quality Assurance lifecycle, focusing on ensuring quality of both web and mobile applications.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Led end-to-end manual testing cycles for Android applications and web platforms</li>
+                    <li>Created detailed test plans and comprehensive bug reports in JIRA</li>
+                    <li>Implemented automated testing using Selenium for critical user flows</li>
+                    <li>Collaborated with development teams in agile sprints and release meetings</li>
+                    <li>Performed backend validation and database testing using advanced SQL queries</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Project Management Associate</div>
+                    <div class="experience-date">Feb 2020 - Jun 2020</div>
+                </div>
+                <div class="experience-company">DeliveryHobe</div>
+                <div class="experience-desc">
+                    Contributed to project execution and technical objectives while enhancing user experience.
+                </div>
+                <ul class="experience-achievements">
+                    <li>Led cross-functional teams to enhance project execution</li>
+                    <li>Contributed to UI/UX design improvements for websites and applications</li>
+                    <li>Developed and managed project documentation for transparency</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">LLMs</span>
+                        <span class="skill-tag">Embeddings</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">MLOps</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python (Advanced)</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>QA & Testing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Manual Testing</span>
+                        <span class="skill-tag">Automated Testing</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Mobile Testing</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Test Planning</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Trello</span>
+                        <span class="skill-tag">Microsoft 365</span>
+                        <span class="skill-tag">Appium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="degree">M.Sc. Applied Computer Science</div>
+                    <div class="education-date">2022 - 2024</div>
+                </div>
+                <div class="university">UiT The Arctic University of Norway</div>
+                <div class="thesis">
+                    <strong>Thesis:</strong> Application of LLMs and Embeddings in Music Recommendation Systems
+                    <br><br>
+                    <strong>Key Focus:</strong> Generative models, neural network architectures, data processing, and transfer learning methods
+                    <br><br>
+                    <strong>Research Methods:</strong> Generative models, NLP techniques, deep learning (PyTorch, TensorFlow), embedding methods, user-behavior analysis
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="degree">B.Sc. Computer Science & Engineering</div>
+                    <div class="education-date">2015 - 2020</div>
+                </div>
+                <div class="university">Ahsanullah University of Science & Technology, Bangladesh</div>
+                <div class="thesis">
+                    <strong>Thesis:</strong> Face and eye detection using MTCNN, frequent iris movement analysis for anomaly observer detection
+                    <br><br>
+                    <strong>Research Methods:</strong> Dataset generation, anomaly detection, CNN architectures (MTCNN)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section">
+        <div class="container">
+            <h2>Publications & Research</h2>
+            <div class="publications-grid">
+                <div class="publication-item">
+                    <div class="publication-title">Improvement of Face and Eye Detection Performance by Using Multi-task Cascaded Convolutional Networks</div>
+                    <div class="publication-venue">IEEE TENSYMP</div>
+                    <div class="publication-year">2020</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">A Novel Approach to Detect and Track Iris for a Different Adverse Dataset</div>
+                    <div class="publication-venue">VRIP</div>
+                    <div class="publication-year">2020</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">A New Framework for Video-based Frequent Iris Movement Analysis towards Anomaly Observer Detection</div>
+                    <div class="publication-venue">MECS</div>
+                    <div class="publication-year">2020</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Application of LLMs and Embeddings in Music Recommendation Systems</div>
+                    <div class="publication-venue">In preparation</div>
+                    <div class="publication-year">2024</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #333;">Conference Presentations</h3>
+                <div class="publication-item">
+                    <div class="publication-title">Application of LLMs and Embeddings in Music Recommendation Systems</div>
+                    <div class="publication-venue">Internal seminar at UiT</div>
+                    <div class="publication-year">2024</div>
+                    <p style="margin-top: 1rem; color: #666;">Discussed architecture design, training strategies, and user satisfaction metrics for recommender systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership" class="section">
+        <div class="container">
+            <h2>Leadership & Activities</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">President</div>
+                    <div class="experience-date">2023 - 2024</div>
+                </div>
+                <div class="experience-company">International Student Union Narvik, UiT</div>
+                <ul class="experience-achievements">
+                    <li>Organized cultural and networking events for international student community</li>
+                    <li>Collaborated with university administrators and local organizations</li>
+                    <li>Led volunteer teams, overseeing budget allocation and event planning</li>
+                    <li>Promoted student well-being and engagement initiatives</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:taiefmaiden1@gmail.com">taiefmaiden1@gmail.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+4746269951">+47 46269951</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/abu-taief/" target="_blank">linkedin.com/in/abu-taief/</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/MaidenTaief" target="_blank">github.com/MaidenTaief</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Narvik, Norway</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abu Mohammad Taief. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to nav links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
